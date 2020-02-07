@@ -1,0 +1,22 @@
+{
+   "name": "node-app",
+   "description": "hello ci test app",
+   "version": "0.0.1",
+   "private": true,
+   "scripts": {
+      "start": "node index.js",
+      "test": "jest --verbose --maxWorkers=1"
+   },
+   "dependencies": {
+      "body-parser": "^1.19.0",
+      "debug": "^4.1.1",
+      "express": "^4.17.1",
+      "helmet": "^3.21.2",
+      "mongodb": "^3.5.2"
+   },
+   "devDependencies": {
+      "jest": "^25.1.0",
+      "mocha": "^7.0.0",
+      "supertest": "^4.0.2"
+   }
+}
