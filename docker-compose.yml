@@ -1,37 +1,9 @@
 version: '3.1'
 
 services:
-  mongo:
-    image: mongo:3.6.17-xenial
-    restart: always
+  apps:
+    image: ardyantohermawan/node-starter:latest
     ports:
-      - 27017:27017
+      - 3000:3000
     environment:
-      MONGO_INITDB_ROOT_USERNAME: root
-      MONGO_INITDB_ROOT_PASSWORD: example
-      MONGO_INITDB_DATABASE: company
-    volumes:
-      - ./mongo-volume:/data/db
-
-  mongo-express:
-    image: mongo-express
-    restart: always
-    ports:
-      - 8081:8081
-    environment:
-      ME_CONFIG_MONGODB_ADMINUSERNAME: root
-      ME_CONFIG_MONGODB_ADMINPASSWORD: example
-
-  # apps:
-  #   build: .
-  #   restart: always
-  #   ports:
-  #     - 3000:3000
-  #   links:
-  #     - mongo:mongo
-  #   environment:
-  #     MONGODB_DBNAME: company
-  #     MONGODB_URL: mongodb://administrator:administrator@mongo:27017/company
-  #     MONGODB_COLLECTION: employees
-  #     PORT: 3000
-      
+      PORT: 3000
