@@ -1,4 +1,4 @@
-FROM node:12.14-alpine3.9
+FROM node:14.16-alpine3.13
 
 ADD . /app
 
