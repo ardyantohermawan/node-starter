@@ -5,7 +5,6 @@ ADD . /app
 WORKDIR /app
 
 RUN npm install
-RUN rm -R .git
 
 ENV PORT=3000
 
