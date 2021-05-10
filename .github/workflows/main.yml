@@ -51,7 +51,9 @@ jobs:
           context: ./
           file: ./Dockerfile
           push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/node-starter:${{ steps.extractver.outputs.version }}
+          tags: |
+            ${{ secrets.DOCKER_USERNAME }}/node-starter:${{ steps.extractver.outputs.version }}
+            ${{ secrets.DOCKER_USERNAME }}/node-starter:latest
 
-      # - name: deploy
-      #   run : docker stack deploy --compose-file docker-compose.yml node-starter
+      - name: deploy
+        run : docker stack deploy --compose-file docker-compose.yml node-starter
