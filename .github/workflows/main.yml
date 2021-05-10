@@ -39,8 +39,8 @@ jobs:
       - name: extract version
         id: extractver
         run: |
-          VERSION=$(echo "${{ github.ref }}" | sed -e 's,.*/\(.*\),\1,')
-          [[ "${{ github.ref }}" == "refs/tags/"* ]] && VERSION=$(echo $VERSION | sed -e 's/^v//')
+          export VERSION=$(echo "${{ github.ref }}" | sed -e 's,.*/\(.*\),\1,')
+          [[ "${{ github.ref }}" == "refs/tags/"* ]] && export VERSION=$(echo $VERSION | sed -e 's/^v//')
           [ "$VERSION" == "master" ] && export VERSION=latest
           echo "::set-output name=version::$(VERSION)"
 
