@@ -60,9 +60,9 @@ jobs:
 
       - name: pull image
         run: |
-          ${{ secrets.DOCKER_USERNAME }}/node-starter:${{ github.sha }}
-          ${{ secrets.DOCKER_USERNAME }}/node-starter:latest
-          ${{ secrets.DOCKER_USERNAME }}/node-starter:${{ steps.extract_branch.outputs.branch }}
+          docker pull ${{ secrets.DOCKER_USERNAME }}/node-starter:${{ github.sha }}
+          docker pull ${{ secrets.DOCKER_USERNAME }}/node-starter:latest
+          docker pull ${{ secrets.DOCKER_USERNAME }}/node-starter:${{ steps.extract_branch.outputs.branch }}
 
       - name: deploy
         run : TAG=${{ github.sha }} docker stack deploy --compose-file docker-compose.yml node-starter
