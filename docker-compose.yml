@@ -2,8 +2,11 @@ version: '3.1'
 
 services:
   apps:
-    image: ardyantohermawan/node-starter:latest
+    image: ardyantohermawan/node-starter:${TAG}
     ports:
-      - 3000:3000
+      - target: 3000
+        published: 3000
+        protocol: tcp
+        mode: host
     environment:
       PORT: 3000
