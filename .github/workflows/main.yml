@@ -53,6 +53,11 @@ jobs:
             ${{ secrets.DOCKER_USERNAME }}/node-starter:latest
             ${{ secrets.DOCKER_USERNAME }}/node-starter:${{ steps.extract_branch.outputs.branch }}
 
+      - name: Sleep for 45 seconds
+        uses: whatnick/wait-action@master
+        with:
+          time: '45s'
+
       - name: pull image
         run: |
           ${{ secrets.DOCKER_USERNAME }}/node-starter:${{ github.sha }}
